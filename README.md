@@ -1,4 +1,4 @@
-# (Simple chat message)
+# Simple chat message
 
 ## Frontend
 
