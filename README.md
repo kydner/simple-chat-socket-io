@@ -32,3 +32,7 @@ yarn start
 
 - Auto send message from server when client connected
 - When send message hello server auto send message
+
+## Preview
+
+![Simple Chat Apllication](preview.png)
