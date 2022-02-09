@@ -1,16 +1,7 @@
 <template>
   <q-page class="flex flex-center">
     <div>
-      <div
-        style="
-          z-index: 0;
-          overflow: auto;
-          width: 70vw;
-          height: 80vh;
-          padding: 2em;
-        "
-        class="shadow-2"
-      >
+      <div style="" class="chat-message shadow-2">
         <div v-for="(chat, index) in chatList" :key="index" class="q-mb-lg">
           <q-chat-message
             :name="chat.name"
@@ -92,7 +83,7 @@ export default {
           name: this.username,
           message: this.message,
           avatar: "https://cdn.quasar.dev/img/avatar2.jpg",
-          stamp: "1 minute ago",
+          stamp: new Date(),
           sent: true,
           bgColor: "primary",
         };
@@ -106,9 +97,14 @@ export default {
 <style lang="scss" scoped>
 .chat-text {
   position: absolute;
-  bottom: 0.5em;
-  right: 1em;
-  left: 1em;
-  z-index: 1;
+  margin: auto;
+  bottom: 2em;
+  width: 70vw;
+}
+.chat-message {
+  overflow-y: auto;
+  width: 70vw;
+  height: 70vh;
+  padding: 2em;
 }
 </style>

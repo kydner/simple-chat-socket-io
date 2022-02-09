@@ -2,7 +2,7 @@ export interface MessageDto {
   name: string
   avatar: string
   message: string
-  stamp: string
+  stamp: Date
   sent: Boolean
   bgColor: string
 }

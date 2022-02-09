@@ -14,7 +14,7 @@ let welcomeMessage: MessageDto = {
   name: "Bot Chat",
   avatar: "https://cdn.quasar.dev/img/avatar1.jpg",
   message: "Welcome to my paradise",
-  stamp: "27 sec ago",
+  stamp: new Date(),
   sent: false,
   bgColor: "amber-7",
 };
@@ -38,7 +38,7 @@ io.on("connection", (socket) => {
         avatar: "https://cdn.quasar.dev/img/avatar1.jpg",
         bgColor: "amber-7",
         sent: false,
-        stamp: "1 sec ago",
+        stamp: new Date(),
       };
       io.sockets.emit("chat_message", message);
     }
