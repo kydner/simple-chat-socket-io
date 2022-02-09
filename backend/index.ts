@@ -31,7 +31,7 @@ io.on("connection", (socket) => {
     io.sockets.emit("chat_message", data);
 
     /// auto reply message if word contains string of hello
-    if (data.message.toLocaleLowerCase().includes("hello")) {
+    if (data.message?.toLocaleLowerCase()?.includes("hello")) {
       const message: MessageDto = {
         name: "Bot Chat",
         message: `Hello too ${data.name}`,
