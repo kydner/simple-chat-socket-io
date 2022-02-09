@@ -1,19 +1,13 @@
-import express from 'express';
-const app = express();
-import http from 'http'
-const server = http.createServer(app)
-import { Server } from 'socket.io'
-const io = new Server(server, {
-  cors: {
-    origin: ["localhost:8080", "https://dev.example.com"],
-    allowedHeaders: ["my-custom-header"],
-    credentials: true
-  }
-})
+import { createServer } from "http";
+import { Server, Socket } from "socket.io";
+
+const httpServer = createServer();
+const io = new Server(httpServer, {
+  // ...
+});
 import { MessageDto } from './dto/message.dto';
 // rest of the code remains same
 const PORT = 8000;
-app.get('/', (req, res) => res.send('Express + TypeScript Server'));
 
 let welcome:MessageDto = {
   name:'Bot', 
@@ -36,6 +30,6 @@ io.on('connection', (socket) => {
   })
 })
 
-app.listen(PORT, () => {
+httpServer.listen(PORT, () => {
   console.log(`⚡️[server]: Server is running at https://localhost:${PORT}`);
 });
