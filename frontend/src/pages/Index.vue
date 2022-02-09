@@ -38,12 +38,19 @@
 </template>
 
 <script>
+import { io } from "socket.io-client";
+const socket = io('localhost:8000')
 export default {
   name: "PageIndex",
   data() {
     return {
       message: null,
     };
+  },
+  created() {
+    socket.on("connected", () => {
+      console.log(socket.id)
+    })
   },
 };
 </script>
